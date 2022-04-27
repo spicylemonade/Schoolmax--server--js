@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body class="fbody" onload="func()">
+    <script>
+      function func() {
+        console.log(localStorage);
+        console.log(localStorage.getItem('data'));
+        let data = JSON.parse(localStorage.getItem('data'));
+        console.log(data);
+        document.getElementById('data1').innerText = data.gpa[0];
+        //data = data.split(',');
+
+        console.log(localStorage);
+        for (let i = 0; i < data.gpa[1].length; i++) {
+          var h1 = document.createElement('h1');
+          h1.textContent = data.gpa[1][i];
+          document.body.appendChild(h1);
+        }
+      }
+    </script>
+    <div class="top-nav"></div>
+    <div class="frame">
+      <div class="student_name"></div>
+      <div class="classes"></div>
+      <h1 id="data1"></h1>
+    </div>
+    <div class="bottom-nav"></div>
+  </body>
+</html>

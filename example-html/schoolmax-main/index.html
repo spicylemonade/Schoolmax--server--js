@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      function getapi() {
+        document.getElementById('go').innerText = 'LOADING..';
+        const name = document.getElementById('name').value;
+        const pass = document.getElementById('pass').value;
+        const payload = { name, pass };
+        console.log(payload);
+        const options = {
+          method: 'POST',
+          body: JSON.stringify({ payload }),
+          headers: { 'Content-type': 'application/json' },
+        };
+        fetch('https://school-max.herokuapp.com/api', options)
+          .then((res) => {
+            return res.json();
+            console.log(res.json());
+          })
+          .then((data) => {
+            localStorage.setItem('data', JSON.stringify(data));
+            console.log(data);
+            //window.location.assign('./nex.html?' + data);
+            console.log(localStorage);
+            window.location.href = './nex.html';
+          });
+      }
+    </script>
+    <title>Document</title>
+  </head>
+  <body id="back">
+    <div class="logo">
+      <img src="./images/app_logo.png" />
+      <div class="app_name">
+        <h1>schoolmax+</h1>
+      </div>
+      <div class="sign">
+        <input id="name" placeholder="enter user-name" />
+        <input id="pass" type="password" placeholder="enter password" />
+      </div>
+      <div class="submit">
+        <button id="go" class="go" onclick="getapi()">GO</button>
+      </div>
+    </div>
+  </body>
+</html>
