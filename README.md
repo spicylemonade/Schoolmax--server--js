@@ -1,4 +1,4 @@
-# schoolmax-
+# schoolmax-plus
 
 
 prince-georges-county-public-school schoolmax(student grade checker) web scraper
